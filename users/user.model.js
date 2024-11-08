@@ -3,9 +3,10 @@ const mongoose = require('mongoose')
 const userSchema = new mongoose.Schema({
     name: { type: String, required: true },
     lastname: { type: String, required: true },
+    email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
-    updateAllowed: { type: Boolean, default: true},
-    deletedAllowed: { type: Boolean, default: true},
+    updateAllowed: { type: Boolean, default: false},
+    deletedAllowed: { type: Boolean, default: false},
     softDelete: { type: Boolean, default: false }
 }, { versionKey: false })
 

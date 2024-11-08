@@ -18,12 +18,12 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
 
-mongoose.connect(`mongodb+srv://${dbUser}:${dbPassword}@cluster0.q47pq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`,{
-    dbName: 'Cluster0' 
+mongoose.connect(`mongodb+srv://${dbUser}:${dbPassword}@cluster0.q47pq.mongodb.net/Cluster0`,{
+    dbName: 'library' 
 }).then(() => {
     console.log("Conexión a la base de datos exitosa")
 }).catch((err) => {
-    console.log("Error de conexión a la base de datos")
+    console.log("Error de conexión a la base de datos", err)
 })
 
 
