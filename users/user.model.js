@@ -7,6 +7,9 @@ const userSchema = new mongoose.Schema({
     password: { type: String, required: true },
     updateAllowed: { type: Boolean, default: false},
     deletedAllowed: { type: Boolean, default: false},
+    createLibraryAllowed: { type: Boolean, default: false},
+    updateLibraryAllowed: { type: Boolean, default: false},
+    deleteLibraryAllowed: { type: Boolean, default: false},
     softDelete: { type: Boolean, default: false }
 }, { versionKey: false })
 

@@ -18,7 +18,6 @@ const PostUser = async (req, res) => {
     const outValue = await signUp(req.body);
     res.status(outValue.code).json(outValue.value);
   } catch (error) {
-    console.log(error);
     res.status(500).json({ error: "Error creating user" });
   }
 };
@@ -28,7 +27,6 @@ const PatchUsers = async (req, res) => {
     const outValue = await updateUserData(req);
     res.status(outValue.code).json(outValue.value);
   } catch (error) {
-    console.log(error);
     res.status(500).json({ error: "Error updating users" });
   }
 };
@@ -38,7 +36,6 @@ const DeleteUser = async (req, res) => {
     const outValue = await deleteUser(req) 
     res.status(outValue.code).json(outValue.value)
   } catch (error) {
-    console.log(error)
     res.status(500).json({ error: 'Error deleting user' })
   }
 }
@@ -48,7 +45,6 @@ const GetUser = async (req, res) => {
     const outValue = await getUserData(req);
     res.status(outValue.code).json(outValue.value);
   } catch (error) {
-    console.log(error);
     res.status(500).json({ error: "Error getting user data" });
   }
 }

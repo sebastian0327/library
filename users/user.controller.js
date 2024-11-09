@@ -1,7 +1,7 @@
 const argon2 = require('argon2')
 const {createUser} = require('./createUser.action');
 const {updateUser} = require('./updateUser.action');
-const {getUser,getUserSoftDeleted} = require('./readUser.actions');
+const {getUser,getUserSoftDeleted} = require('./readUser.action');
 const {softDeleteUser} = require('./deleteUser.action');
 const { createToken, tokenVerification } = require('../utils/auth')
 
@@ -89,7 +89,6 @@ async function deleteUser(req) {
     if(!userId){
         return { value: { error: "No id provided" }, code: 400}
     }
-
     
     if (userId !== user.id && !user.deletedAllowed) {
         return { value: { error: "You are not authorized to delete this user" }, code: 401 }
