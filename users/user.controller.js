@@ -84,8 +84,8 @@ async function updateUserData(req) {
 async function deleteUser(req) {
     
     const  userId  = req.query.userId
-    
     const user =  await getUser(tokenVerification(req).userId, "id")
+    
     if(!userId){
         return { value: { error: "No id provided" }, code: 400}
     }

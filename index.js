@@ -3,7 +3,7 @@ const cors = require('cors')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose') 
 const routesUsers = require('./users/user.route')
-const routesReservs = require('./reservationRecord/reserv.route')
+const routesReservs = require('./reservationRecord/reservation.route')
 const routesBooks = require('./books/book.route')
 require('dotenv').config()
 

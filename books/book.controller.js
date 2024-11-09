@@ -38,11 +38,12 @@ async function getBookById(req) {
 
   return { value: { bookData: bookData }, code: 200 };
 }
+
 async function getBooksListByFilter(req) {
   const { name, genre, publicationYear, publisher, author } = req.query;
 
   if (!name && !genre && !publicationYear && !publisher && !author) {
-    return { value: { error: "No data provided for modification" }, code: 400 };
+    return { value: { error: "No data provided for consult" }, code: 400 };
   }
 
   const filter = {};
