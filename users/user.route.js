@@ -1,7 +1,7 @@
-const express = require("express");
-const router = express.Router();
-const { signUp, updateUserData, getUserData, login, deleteUser } = require("./user.controller");
-const { tokenVerificationMiddleware } = require("../utils/auth");
+const express = require("express")
+const router = express.Router()
+const { signUp, updateUserData, getUserData, login, deleteUser } = require("./user.controller")
+const { tokenVerificationMiddleware } = require("../utils/auth")
 
 
 const LoginUser = async (req, res) => { 
@@ -15,21 +15,21 @@ const LoginUser = async (req, res) => {
 
 const PostUser = async (req, res) => {
   try {
-    const outValue = await signUp(req.body);
-    res.status(outValue.code).json(outValue.value);
+    const outValue = await signUp(req.body)
+    res.status(outValue.code).json(outValue.value)
   } catch (error) {
-    res.status(500).json({ error: "Error creating user" });
+    res.status(500).json({ error: "Error creating user" })
   }
-};
+}
 
 const PatchUsers = async (req, res) => {
   try {
-    const outValue = await updateUserData(req);
-    res.status(outValue.code).json(outValue.value);
+    const outValue = await updateUserData(req)
+    res.status(outValue.code).json(outValue.value)
   } catch (error) {
-    res.status(500).json({ error: "Error updating users" });
+    res.status(500).json({ error: "Error updating users" })
   }
-};
+}
 
 const DeleteUser = async (req, res) => { 
   try {
@@ -42,16 +42,16 @@ const DeleteUser = async (req, res) => {
 
 const GetUser = async (req, res) => {
   try {
-    const outValue = await getUserData(req);
-    res.status(outValue.code).json(outValue.value);
+    const outValue = await getUserData(req)
+    res.status(outValue.code).json(outValue.value)
   } catch (error) {
-    res.status(500).json({ error: "Error getting user data" });
+    res.status(500).json({ error: "Error getting user data" })
   }
 }
 
 router.post("/login", LoginUser)
-router.post("/", PostUser);
-router.patch("/", tokenVerificationMiddleware, PatchUsers);
+router.post("/", PostUser)
+router.patch("/", tokenVerificationMiddleware, PatchUsers)
 router.delete("/", tokenVerificationMiddleware, DeleteUser)
-router.get("/",  GetUser);
-module.exports = router;
+router.get("/",  GetUser)
+module.exports = router

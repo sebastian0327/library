@@ -1,12 +1,12 @@
 const argon2 = require('argon2')
-const {createUser} = require('./createUser.action');
-const {updateUser} = require('./updateUser.action');
-const {getUser,getUserSoftDeleted} = require('./readUser.action');
-const {softDeleteUser} = require('./deleteUser.action');
+const {createUser} = require('./createUser.action')
+const {updateUser} = require('./updateUser.action')
+const {getUser,getUserSoftDeleted} = require('./readUser.action')
+const {softDeleteUser} = require('./deleteUser.action')
 const { createToken, tokenVerification } = require('../utils/auth')
 
 async function signUp(userData) {
-    const { name, lastname, password, email, updateAllowed, deletedAllowed, softDelete } = userData;
+    const { name, lastname, password, email, updateAllowed, deletedAllowed, softDelete } = userData
     
     if(!name || !lastname || !password || !email) {
         return { value: { error: "Incomplete data" }, code: 400 }
